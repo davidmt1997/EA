@@ -1,5 +1,5 @@
 from py2neo import Graph, Node, Relationship
-from test import *
+from scrapper import *
 graph = Graph("bolt://neo4j:gland-inception-surveyor@52.86.147.25:33217")
 
 FIFA_WIKI_URL = "https://en.wikipedia.org/wiki/FIFA_20"

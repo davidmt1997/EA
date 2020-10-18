@@ -1,6 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import time
 from selenium.webdriver.common.by import By
 
 FIFA_WIKI_URL = "https://en.wikipedia.org/wiki/FIFA_20"
@@ -47,11 +46,12 @@ def preprocess(words):
 	return ret
 	
 
-PATH = "/home/dmiranda/Development/python/ea/chromedriver_linux64/chromedriver"
-driver = webdriver.Chrome(PATH)
+'''
+#PATH = "/home/dmiranda/Development/python/ea/chromedriver_linux64/chromedriver"
+#driver = webdriver.Chrome(PATH)
 
 # Modify the url to switch the games page
-driver.get(PES_WIKI_URL)
+#driver.get(PES_WIKI_URL)
 
 #print("Game title: ", get_game_title(driver))
 
@@ -67,4 +67,5 @@ for x, y in ret.items():
 	print(x, y) 
 
 driver.close()
+'''
 

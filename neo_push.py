@@ -1,5 +1,7 @@
 from py2neo import Graph, Node, Relationship
-from scrapper import *
+from wiki_scrapper import get_game_title, get_info_table
+from selenium import webdriver
+
 graph = Graph("bolt://neo4j:gland-inception-surveyor@52.86.147.25:33217")
 
 FIFA_WIKI_URL = "https://en.wikipedia.org/wiki/FIFA_20"

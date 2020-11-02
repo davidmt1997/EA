@@ -1,9 +1,9 @@
 from py2neo import Graph, Node, Relationship
 from wiki_scrapper import get_game_title, get_info_table, get_scores_table
 from steam_scrapper import get_languages, get_realease_date
-from wiki_es_scrapper import get_commentaries
-#from selenium import webdriver
-#from selenium.webdriver.chrome.options import Options
+from wiki_es_scrapper import get_commentaries, get_fifa_licenses_table, get_pes_licenses_table
+from twitter_scrapper import get_twitter_info
+from facebook_scrapper import get_fb_info
 import logging
 from selenium_driver import Selenium_driver
 
@@ -18,6 +18,8 @@ FIFA_STEAM_URL = "https://store.steampowered.com/app/1313860/EA_SPORTS_FIFA_21/"
 NHL_WIKI_URL = "https://en.wikipedia.org/wiki/NHL_21"
 NFL_WIKI_URL = "https://en.wikipedia.org/wiki/Madden_NFL_21"
 NFL_STEAM_URL = "https://store.steampowered.com/app/1239520/Madden_NFL_21/"
+tw_accounts = ["EA", "EASPORTSFIFA", "officialpes", "Konami"]
+fb_pages = ["https://www.facebook.com/easportsfifa", "https://www.facebook.com/pes2020tr"]
 
 '''
 for url in [FIFA_WIKI_URL, PES_WIKI_URL, NHL_WIKI_URL, NFL_WIKI_URL]:
@@ -48,15 +50,19 @@ for url in [FIFA_WIKI_URL, PES_WIKI_URL, NHL_WIKI_URL, NFL_WIKI_URL]:
 	scores = get_scores_table(driver)
 	print(scores)
 	my_driver.diconnect_driver()
-
-for url in [FIFA_WIKI_ES_URL, PES_WIKI_ES_URL, NFL_WIKI_URL]:
+'''
+for url in [PES_WIKI_ES_URL]:
 	my_driver = Selenium_driver(url)
 	driver = my_driver.connect_driver()
 	logging.info("Getting commentaries table")
-	print(get_commentaries(driver))
+	#print(get_commentaries(driver))
+	if "fifa" in url.lower():
+		get_fifa_licenses_table(driver)
+	else:
+		get_pes_licenses_table(driver)
 	my_driver.diconnect_driver()
 	
-
+'''
 for url in [FIFA_STEAM_URL, PES_STEAM_URL, NFL_STEAM_URL]:
 	my_driver = Selenium_driver(url)
 	driver = my_driver.connect_driver()
@@ -66,11 +72,18 @@ for url in [FIFA_STEAM_URL, PES_STEAM_URL, NFL_STEAM_URL]:
 	logging.info("Getting release date")
 	release_date = get_realease_date(driver)
 	print(release_date)
+	my_driver.diconnect_driver()
+
+for a in tw_accounts:
+	followers, rts_avg, fav_avg = get_twitter_info(a)
+	print(followers, rts_avg, fav_avg)
+
+for page in fb_pages:
+	my_driver = Selenium_driver(page)
+	driver = my_driver.connect_driver()
+	likes, followers = get_fb_info(driver)
+	print(likes, followers)
 	my_driver.diconnect_driver()'''
-
-
-
-# TODO: get social media scores and trending comparisons
 
 '''
 driver1 = webdriver.Chrome(PATH)

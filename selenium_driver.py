@@ -13,7 +13,16 @@ class Selenium_driver:
     def connect_driver(self):
         # Using option headless to not see the window every time we scrape
         chrome_options = Options()  
-        chrome_options.add_argument("--headless")  
+        chrome_options.add_argument("--headless")
+
+        chrome_options.add_argument("--disable-infobars")
+        chrome_options.add_argument("--disable-notifications")
+        chrome_options.add_argument("--disable-extensions")
+
+        # Pass the argument 1 to allow and 2 to block
+        chrome_options.add_experimental_option("prefs", { 
+            "profile.default_content_setting_values.notifications": 1 
+        })
         self.driver = webdriver.Chrome(executable_path=self.path,
                                     options=chrome_options)
         logging.info("Getting given URL")

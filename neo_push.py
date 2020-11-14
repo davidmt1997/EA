@@ -123,7 +123,8 @@ for urls in [FIFA_URLS, PES_URLS]:
 
 				# TODO: mirar como hacer mejor estas relaciones
 				for x, y in info.items():
-					rel = Relationship(info_node, x, y)
+					i = Node("Infos", name=y)
+					rel = Relationship(info_node, x, i)
 					tx.create(rel)
 
 				for x, y in scores.items():
@@ -189,7 +190,7 @@ for urls in [FIFA_URLS, PES_URLS]:
 			# Getting facebook data
 			elif "facebook" in url:
 				facebook_node = Node("SM", name="facebook")
-				rel = Relationship(game_node, "facebook data", facebook_node)
+				rel = Relationship(game_node, "facebook_data", facebook_node)
 				tx.create(rel)
 				likes, followers = get_fb_info(driver)
 				if likes != "":
@@ -212,7 +213,7 @@ for urls in [FIFA_URLS, PES_URLS]:
 			tw_followers_node = Node("Followers", name=followers)
 			tw_rts_node = Node("Rts", name=rts_avg)
 			tw_fav_node = Node("Fav", name=fav_avg)
-			rel = Relationship(game_node, "twitter data", twitter_node)
+			rel = Relationship(game_node, "twitter_data", twitter_node)
 			tx.create(rel)
 			r3 = Relationship(twitter_node, "has_followers", tw_followers_node)
 			tx.create(r3)

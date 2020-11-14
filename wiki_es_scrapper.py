@@ -136,6 +136,7 @@ def get_fifa_licenses_table(driver):
         print(selec_fem)
     except NoSuchElementException:
         print("Cannot find table") 
+    return df, selec_masc, selec_fem
 
 def get_pes_licenses_table(driver):
     data1 = {'Region': [],
@@ -157,7 +158,6 @@ def get_pes_licenses_table(driver):
             for h in header:
                 if "reales" in h.text or "Licencia" in h.text and "Licenciados" not in h.text:
                     count += 1
-                    print(h.text)
             for h in header:
                 if "reales" in h.text or "Licencia" in h.text and "Licenciados" not in h.text:
                     found += 1
@@ -182,8 +182,6 @@ def get_pes_licenses_table(driver):
                         # Second table found
                         if found == 2:
                             new_row2 = {}
-                            print(row.text)
-                            print(len(tdata))
                             if len(tdata) == 0:
                                 continue
                             if len(tdata) == 3:
@@ -196,7 +194,10 @@ def get_pes_licenses_table(driver):
                                 selecciones = selecciones.append(new_row2, ignore_index=True)
                     
         print(competiciones)
+        selecciones = selecciones.dropna(axis = 0, how ='all')
         with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
             print(selecciones)
     except NoSuchElementException:
         print("Cannot find table")
+        
+    return competiciones, selecciones

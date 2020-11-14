@@ -32,7 +32,7 @@ def get_info_table(driver):
 			# If the field found is not in the list, don't add it
 			if rows[i].find_element_by_css_selector("th").text not in categories:
 				continue
-			ret[rows[i].find_element_by_css_selector("th").text] = preprocess(rows[i].find_element_by_css_selector("td").text)
+			ret[rows[i].find_element_by_css_selector("th").text] = preprocess1(rows[i].find_element_by_css_selector("td").text)
 	except NoSuchElementException:
 		logging.error("Cannot get info table")
 
@@ -62,6 +62,20 @@ def preprocess(words):
 			word = word[:start] + word[end+1:]
 		ret.append(word)
 	return ret
+
+# Preprocessing helper function to split the scraped info from tables and remove the '[number]' clause 
+def preprocess1(words):
+	words = words.split('\n')
+	ret = []
+	s = ","
+	for word in words:
+		if word.find('[') != -1:
+			start = word.find('[')
+			end = word.find(']')
+			word = word[:start] + word[end+1:]
+		ret.append(word)
+	s = s.join(ret)
+	return s
 	
 
 

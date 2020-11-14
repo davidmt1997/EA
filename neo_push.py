@@ -7,7 +7,7 @@ from facebook_scrapper import get_fb_info
 import logging
 from selenium_driver import Selenium_driver
 
-graph = Graph(password="03111997")
+graph = Graph(password="")
 
 # Steam is Fifa 21, can't find language for fifa 20
 FIFA_URLS = ["https://en.wikipedia.org/wiki/FIFA_20", "https://es.wikipedia.org/wiki/FIFA_20", "https://store.steampowered.com/app/1313860/EA_SPORTS_FIFA_21/", "https://www.facebook.com/easportsfifa", "EA"]

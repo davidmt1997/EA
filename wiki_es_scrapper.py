@@ -2,10 +2,6 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 import logging
 import pandas as pd
-import spacy
-
-nlp = spacy.load('es_core_news_lg')
-
 
 # Returns a dataframe with the commentary table from the es pages
 def get_commentaries(driver):
@@ -28,7 +24,7 @@ def get_commentaries(driver):
                     df = df.append(new_row, ignore_index=True)
                 break
     except NoSuchElementException:
-        logging.error("Cannot find header in table")
+        print("Cannot find header in table")
 
     # Check if we find a table that the first row is the info we want
     try:
@@ -46,7 +42,7 @@ def get_commentaries(driver):
                     df = df.append(new_row, ignore_index=True)
                 break
     except NoSuchElementException:
-        logging.error("Cannot find table")
+        print("Cannot find table")
     
     return df
 
@@ -131,9 +127,6 @@ def get_fifa_licenses_table(driver):
             if found == count:
                 break
 
-        print(df)
-        print(selec_masc)
-        print(selec_fem)
     except NoSuchElementException:
         print("Cannot find table") 
     return df, selec_masc, selec_fem
@@ -193,10 +186,7 @@ def get_pes_licenses_table(driver):
                             if new_row2 :
                                 selecciones = selecciones.append(new_row2, ignore_index=True)
                     
-        print(competiciones)
         selecciones = selecciones.dropna(axis = 0, how ='all')
-        with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
-            print(selecciones)
     except NoSuchElementException:
         print("Cannot find table")
         

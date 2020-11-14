@@ -1,9 +1,9 @@
 import twitter
 
-api = twitter.Api(consumer_key="",
-                  consumer_secret="",
-                  access_token_key="",
-                  access_token_secret="")
+api = twitter.Api(consumer_key="FkqzuXTPFTelpza9HJ0bmd1CL",
+                  consumer_secret="ZZfpwHoIIGG5N3rDizpjpRkHmWyQVEPIQw27ACTSr2kwKcqyYq",
+                  access_token_key="1320016637576253440-WvzyoZj3yZ1qBditHGrE1rSHGMXcwb",
+                  access_token_secret="zVGKv1EaeaaX4r0VTbP4mMiIuYLuhe1ws9pdirpdn2Zxk")
   
 def get_twitter_info(account):
     rt_count = 0
@@ -31,9 +31,5 @@ def get_twitter_info(account):
                 except KeyError:
                     pass
         
-    print(account, "has this many followers ", user["followers_count"])
-    print("Total tweets counted: %d" % count)
-    print(account, "average rt count: %f" % (rt_count / count))
-    print(account, "average fav count: %f" % (fav_count / count))
     return int(user["followers_count"]), (rt_count / count), (fav_count / count)
     

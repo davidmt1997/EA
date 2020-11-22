@@ -1,10 +1,10 @@
 import twitter
 
 # Twitter API keys
-api = twitter.Api(consumer_key="FkqzuXTPFTelpza9HJ0bmd1CL",
-                  consumer_secret="ZZfpwHoIIGG5N3rDizpjpRkHmWyQVEPIQw27ACTSr2kwKcqyYq",
-                  access_token_key="1320016637576253440-WvzyoZj3yZ1qBditHGrE1rSHGMXcwb",
-                  access_token_secret="zVGKv1EaeaaX4r0VTbP4mMiIuYLuhe1ws9pdirpdn2Zxk")
+api = twitter.Api(consumer_key="",
+                  consumer_secret="",
+                  access_token_key="",
+                  access_token_secret="")
 
 '''
 Returns the number of followers, average retweet count and average favorite count (of the last 200 tweets) of a given page

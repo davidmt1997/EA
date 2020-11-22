@@ -1,13 +1,12 @@
 from py2neo import Graph, Node, Relationship
-from wiki_scrapper import get_game_title, get_info_table, get_scores_table
-from steam_scrapper import get_languages, get_realease_date
-from wiki_es_scrapper import get_commentaries, get_fifa_licenses_table, get_pes_licenses_table
-from twitter_scrapper import get_twitter_info
-from facebook_scrapper import get_fb_info
-import logging
+from scrappers.wiki_scrapper import get_game_title, get_info_table, get_scores_table
+from scrappers.steam_scrapper import get_languages, get_realease_date
+from scrappers.wiki_es_scrapper import get_commentaries, get_fifa_licenses_table, get_pes_licenses_table
+from scrappers.twitter_scrapper import get_twitter_info
+from scrappers.facebook_scrapper import get_fb_info
 from selenium_driver import Selenium_driver
 
-graph = Graph(password="")
+graph = Graph(password="03111997")
 
 # Steam is Fifa 21, can't find language for fifa 20
 FIFA_URLS = ["https://en.wikipedia.org/wiki/FIFA_20", "https://es.wikipedia.org/wiki/FIFA_20", "https://store.steampowered.com/app/1313860/EA_SPORTS_FIFA_21/", "https://www.facebook.com/easportsfifa", "EA"]

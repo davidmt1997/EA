@@ -9,7 +9,7 @@ class Neo_Graph:
     Constructor to create the graph, authentication passed
     '''
     def __init__(self):
-        self.graph = Graph(password="03111997")
+        self.graph = Graph(password="")
         self.tx = None
 
     '''

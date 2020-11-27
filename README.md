@@ -13,12 +13,13 @@ To compare the FIFA 20 with eFootball PES 2020
 * Having Python installed
 * Having a running instance of an empty Neo4j database (preferably with a password that has to be entered in neo4j_graph.py)
 * Creating a Twitter Developer account and filling the API keys in the scrapper/twitter_scrapper.py file
+* Having a selenium Chrome driver in the project folder
 
 
 ## To run:
 
 1. `git clone` the repo
-2. make sure you have a driver for Selenium in the right path (if you are using Windows you might have to adjust the code)
+2. make sure you have a driver for Selenium in the right path (if you are using Windows you will have to adjust the code to match the project PATH)
 3. run `ṕip install -r requierements.txt`
 4. run `python neo_push2.py`
 

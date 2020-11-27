@@ -23,7 +23,7 @@ The other files are class functions that help with the Selenium driver connectiv
 
 ## To run:
 
-1. `git clone` the repo
+1. `git clone` or download the repo
 2. make sure you have a driver for Selenium in the right path (if you are using Windows you will have to adjust the code to match the project PATH)
 3. run `ṕip install -r requierements.txt`
 4. run `python neo_push2.py`

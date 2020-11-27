@@ -8,6 +8,11 @@ To compare the FIFA 20 with eFootball PES 2020
 * Store attributes in graph database
 * Query the database in order to make a visualization / info card comparison between the 2 games.
 
+## Structure
+This project is has some utility functions (the /scrappers files) used to extract data from Wikipedia, Steam, Facebook and Twitter.
+
+The other files are class functions that help with the Selenium driver connectivity and the connections and pushes to the database.
+
 ## Prerequisites
 
 * Having Python installed
@@ -28,3 +33,5 @@ To compare the FIFA 20 with eFootball PES 2020
 The Neo4j Database will be populated with nodes and relationships (localhost:7474) that will be able to query and visualize in the browser.
 
 To connect to a visualization tool such as Power BI: [Check this article here](https://xclave.co.uk/2019/02/06/actually-using-the-new-dataconnector-for-powerbi/)
+
+After that, you can query the Neo4j DB from Power BI.

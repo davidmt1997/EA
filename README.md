@@ -34,4 +34,6 @@ The Neo4j Database will be populated with nodes and relationships (localhost:747
 
 To connect to a visualization tool such as Power BI: [Check this article here](https://xclave.co.uk/2019/02/06/actually-using-the-new-dataconnector-for-powerbi/)
 
+Link to download the .mez file: [Here](https://github.com/cskardon/Neo4jDataConnectorForPowerBi/releases/tag/1.0.0)
+
 After that, you can query the Neo4j DB from Power BI.
